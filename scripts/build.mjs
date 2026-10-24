@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const read = name => fs.readFileSync(path.join(root,'app',name),'utf8');
+const asset = name => fs.readFileSync(path.join(root,'assets',name)).toString('base64');
+const data = JSON.parse(fs.readFileSync(path.join(root,'datos/catalogo-actual.json'),'utf8'));
+const ci=data.headers.indexOf('ItemLoockupCode'), ni=data.headers.indexOf('Item Description'), pi=data.headers.indexOf('PriceC'), gi=data.headers.indexOf('Category');
+if ([ci,ni,pi,gi].some(i=>i<0)) throw Error('Columnas incompletas');
+const seed={source:'MicroStrategy · Precios Productos',syncedAt:data.downloadedAt,reportId:data.reportId,store:'',products:data.rows.map(r=>({code:String(r[ci]),name:String(r[ni]),category:String(r[gi]),cents:Math.round(r[pi]*100)}))};
+let html=read('template.html').replace('/*CSS*/',read('style.css').replace('/*FONT*/',asset('Montserrat.ttf'))).replace('/*LOGO*/','data:image/png;base64,'+asset('Logo_AMPM_Color_HD.png'));
+for(const [tag,file] of [['CORE','core.js'],['VALIDATE','validate.js'],['XLSX','xlsx.js'],['APP','app.js']]) html=html.replace('/*'+tag+'*/',read(file).replaceAll('</script','<\\/script'));
+html=html.replace('/*SEED*/',JSON.stringify(seed).replaceAll('<','\\u003c'));
+html=html.replaceAll('Abre Iniciar AMPM.vbs para actualizar desde MicroStrategy.','Para actualizar esta copia, importa el CSV más reciente de la carpeta reportes de GitHub.');
+html=html.replace('Para sincronizar, abre <b>Iniciar AMPM.vbs</b>. Este HTML funciona sin conexión con el catálogo guardado. Los registros de esta apertura directa son independientes de los del acceso local: usa un respaldo para trasladarlos.', 'Esta copia funciona sin Internet. Para actualizar precios, usa <b>Importar Excel o CSV</b> con el reporte más reciente de GitHub. También puedes <a href="https://ampm-facturacion-emergencias.carlosramirez2025.chatgpt.site" target="_blank" rel="noopener">abrir la aplicación web pública</a>. Usa un respaldo JSON para trasladar ventas entre versiones.');
+html=html.replace('Abre Iniciar AMPM.vbs y actualiza el catálogo desde MSTG. Revisa los precios y la tienda. Conserva esta carpeta y usa siempre el mismo navegador y dirección.', 'Descarga el catálogo CSV actualizado de GitHub e impórtalo en Catálogo y precios. Revisa los precios y la tienda. Conserva este HTML y usa siempre el mismo navegador. Las ventas existentes no cambian al importar precios.');
+fs.writeFileSync(path.join(root,'Facturacion-AMPM.html'),html);
+console.log('HTML listo: '+seed.products.length+' productos; '+seed.syncedAt);

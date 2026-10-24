@@ -1,0 +1,8 @@
+node_modules/
+.env*
+.dev.vars*
+ORACLE.md
+*.log
+respaldo*.json
+ventas*.json
+.DS_Store

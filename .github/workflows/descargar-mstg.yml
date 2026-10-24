@@ -1,0 +1,44 @@
+name: Descargar precios MSTG
+on:
+  schedule:
+    # Managua = UTC-6. GitHub puede iniciar el trabajo con algunos minutos de demora.
+    - cron: '0 15 * * 1,5'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/descargar-mstg.yml'
+      - 'scripts/**'
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    concurrency:
+      group: catalogo-mstg
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Descargar y validar PriceC USD
+        run: node scripts/descargar-mstg.mjs
+      - name: Actualizar copia descargable
+        run: node scripts/build.mjs
+      - name: Guardar reporte y catálogo verificado
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add datos reportes Facturacion-AMPM.html
+          if git diff --cached --quiet; then
+            echo 'El catálogo ya estaba actualizado.'
+          else
+            git commit -m 'Actualizar precios MSTG verificados'
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+      - name: Resumen de descarga
+        run: |
+          echo '### Catálogo MSTG descargado' >> "$GITHUB_STEP_SUMMARY"
+          echo 'PriceC en USD. Consulte datos/ultima-descarga.json y reportes/.' >> "$GITHUB_STEP_SUMMARY"
