@@ -1381,6 +1381,12 @@
       3.15
     ],
     [
+      "8809713911410",
+      "Café OKF Latte 390 ml",
+      "Leche Saborizada",
+      3.15
+    ],
+    [
       "7503001453194",
       "Cafe OLE Clasico 281 ML",
       "Leche Saborizada",
@@ -13483,6 +13489,12 @@
       5.9
     ],
     [
+      "740100591360",
+      "Te Lipton Frambuesa 2.5 Litros",
+      "Te frio",
+      3.3
+    ],
+    [
       "7411000230664",
       "Te Manzanilla Mc Cormick Sobre",
       "Te Caliente",
@@ -15667,8 +15679,8 @@
       0.8
     ]
   ],
-  "total": 2610,
+  "total": 2612,
   "name": "Precios Productos",
   "reportId": "6A605160AF446BF48DD5CAB6278A1037",
-  "downloadedAt": "2026-10-24T12:55:02.169Z"
+  "downloadedAt": "2026-10-26T20:24:11.343Z"
 }
