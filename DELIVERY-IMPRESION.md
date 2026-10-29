@@ -6,16 +6,18 @@ PedidosYa y Uber Eats: PriceC × 1.10. PriceC ya incluye IVA; no se agrega IVA p
 
 En tienda se conserva PriceC. Cambiar el tipo de venta recalcula el carrito sin modificar el catálogo original. Los comprobantes anteriores conservan sus importes.
 
+El ticket delivery muestra los precios finales por unidad, subtotal sin IVA, IVA incluido y total. No muestra PriceC ni el incremento del 10%. Incluye sucursal, número de orden, consecutivo, fecha/hora, caja, responsable y firma del rider. Ya no se solicita ni imprime un conteo de bolsas o paquetes.
+
 ## Registrar y entregar una orden
 
 1. Prepara la jornada con la sucursal, caja y responsable correctos.
-2. En Nueva venta, elige PedidosYa o Uber Eats. Ingresa el número de orden y las bolsas/paquetes. Nombre del rider y observaciones son opcionales.
+2. En Nueva venta, elige PedidosYa o Uber Eats. Ingresa el número de orden. Nombre del rider y observaciones son opcionales.
 3. Agrega los productos y revisa precios y cantidades. Selecciona el medio de pago que corresponde: Plataforma delivery, Efectivo o Tarjeta BAC. El registro no cobra en la plataforma ni comprueba liquidaciones.
 4. Revisa y confirma. Si la plataforma gestiona el cobro, esa venta queda fuera del efectivo esperado y separada de las tarjetas en Tienda y caja.
 5. Abre Ticket para firma del rider e imprime en la térmica de la sucursal. Pide nombre, firma y fecha/hora, y conserva la copia firmada en la tienda. La firma es en papel; imprimir no confirma automáticamente la entrega.
 6. Para reimprimir, usa Registro de ventas → Ver detalle → Ticket para firma del rider. No registres otra venta. Puedes buscar por número de orden o plataforma. Se bloquean órdenes repetidas en la misma tienda y plataforma dentro del historial de ese navegador.
 
-El CSV y los respaldos incluyen canal, orden, rider, paquetes y desglose del precio. En el CSV cada fila es un producto: los totales de venta e impuestos se repiten y no deben sumarse directamente entre líneas.
+El CSV y los respaldos incluyen canal, orden, rider y desglose del precio. La columna de paquetes del CSV se conserva para registros anteriores y queda vacía en las ventas nuevas. En el CSV cada fila es un producto: los totales de venta e impuestos se repiten y no deben sumarse directamente entre líneas.
 
 ## Preparar la impresora en cada caja
 

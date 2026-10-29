@@ -18,7 +18,7 @@
       if(!id(v.id)||ids.has(v.id)||!id(v.sessionId)||!sessions.has(v.sessionId)||!timestamp(v.created)||v.currency!=='USD'||!str(v.folio)||!str(v.store)||!str(v.till)||!str(v.cashier)||!str(v.source)||!str(v.reference)||!Array.isArray(v.items))fail();
       ids.add(v.id);v.items.forEach(p=>product(p,true));const channel=v.channel??'Tienda',delivery=C.isDelivery(channel);
       if(delivery){
-        if(!v.delivery||!str(v.delivery.orderId,80)||!str(v.delivery.rider,80)||!str(v.delivery.notes,200)||!integer(v.delivery.packages))fail();
+        if(!v.delivery||!str(v.delivery.orderId,80)||!str(v.delivery.rider,80)||!str(v.delivery.notes,200)||(v.delivery.packages!==undefined&&(!integer(v.delivery.packages)||v.delivery.packages<1||v.delivery.packages>99)))fail();
         C.deliveryData(channel,v.delivery);const expected=C.quote(v.items,channel);
         if(!v.pricing||Object.keys(expected).some(k=>v.pricing[k]!==expected[k]))fail();
         const key=JSON.stringify([v.store,channel,v.delivery.orderId.trim().toUpperCase()]);if(!v.void){if(orders.has(key))fail();orders.add(key);}
@@ -29,7 +29,7 @@
     if(d.active&&(!sessions.has(d.active)||sessions.get(d.active).closed))fail();
     d.draft.items.forEach(p=>product(p,true));C.quote(d.draft.items,d.draft.channel??'Tienda');if(!['Efectivo','Tarjeta BAC','Plataforma delivery'].includes(d.draft.method)||!str(d.draft.received)||!str(d.draft.reference))fail();
     if(d.draft.method==='Plataforma delivery'&&!C.isDelivery(d.draft.channel??'Tienda'))fail();
-    if(d.draft.delivery&&(!str(d.draft.delivery.orderId,80)||!str(d.draft.delivery.rider,80)||!str(d.draft.delivery.notes,200)||!str(String(d.draft.delivery.packages),3)))fail();
+    if(d.draft.delivery&&(!str(d.draft.delivery.orderId,80)||!str(d.draft.delivery.rider,80)||!str(d.draft.delivery.notes,200)||(d.draft.delivery.packages!==undefined&&!str(String(d.draft.delivery.packages),3))))fail();
     return d;
   }
   return {validate};

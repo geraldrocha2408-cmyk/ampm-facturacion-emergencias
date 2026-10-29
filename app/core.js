@@ -56,11 +56,10 @@
   const orderKey=v=>String(v??'').trim().toUpperCase();
   function deliveryData(channel,details){
     if(!isDelivery(channel))return null;
-    const orderId=String(details?.orderId??'').trim(),rider=String(details?.rider??'').trim(),notes=String(details?.notes??'').trim(),packages=Number(details?.packages);
+    const orderId=String(details?.orderId??'').trim(),rider=String(details?.rider??'').trim(),notes=String(details?.notes??'').trim();
     if(!orderId||orderId.length>80||/[\x00-\x1f\x7f]/.test(orderId))throw Error('Ingresa el número de orden de la plataforma (máximo 80 caracteres).');
     if(rider.length>80||notes.length>200)throw Error('Revisa el nombre del rider o las observaciones.');
-    if(!Number.isInteger(packages)||packages<1||packages>99)throw Error('Indica entre 1 y 99 bolsas o paquetes.');
-    return {orderId,rider,packages,notes};
+    return {orderId,rider,notes};
   }
   function assertUniqueOrder(sales,store,channel,details){
     if(isDelivery(channel)&&sales.some(v=>!v.void&&v.store===store&&v.channel===channel&&orderKey(v.delivery?.orderId)===orderKey(details.orderId)))throw Error('Esta orden ya está registrada en esta tienda y plataforma. Revisa el historial.');
