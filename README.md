@@ -25,7 +25,7 @@ GitHub puede desactivar los flujos programados de repositorios públicos tras 60
 
 En la versión web, abra primero con conexión y espere «Lista para uso sin Internet». La versión HTML descargada funciona sin instalación. La consulta de precios requiere conexión. No use incógnito y no borre datos del navegador antes de respaldar.
 
-Los comprobantes son de contingencia y quedan pendientes del registro definitivo en el sistema de caja. Se cobra exactamente PriceC sin agregar impuestos ni descuentos en esta herramienta.
+Los comprobantes son de contingencia y quedan pendientes del registro definitivo en el sistema de caja. En tienda se cobra PriceC. En delivery (PedidosYa o Uber Eats) se aumenta 10%, con IVA incluido. Consulte [Delivery e impresión térmica de 80 mm](DELIVERY-IMPRESION.md).
 
 ## Código
 

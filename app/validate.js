@@ -13,9 +13,23 @@
     for(const s of d.sessions){if(!id(s.id)||sessions.has(s.id)||!timestamp(s.opened)||!integer(s.opening)||!str(s.store)||!str(s.till)||!str(s.cashier)||!str(s.reason))fail();if(s.closed&&(!timestamp(s.closed)||!integer(s.expected)||!integer(s.counted)||s.difference!==s.counted-s.expected||!str(s.notes)))fail();sessions.set(s.id,s);}
     function product(p,selling=false){if(!p||!str(p.code,100)||!p.code||!str(p.name)||!p.name||!str(p.category)||!integer(p.cents))fail();if(selling&&(!Number.isInteger(p.qty)||p.qty<1||p.qty>9999||p.cents<1))fail();}
     for(const p of d.catalog.products){product(p);if(codes.has(p.code))fail();codes.add(p.code);}
-    for(const v of d.sales){if(!id(v.id)||ids.has(v.id)||!id(v.sessionId)||!sessions.has(v.sessionId)||!timestamp(v.created)||v.currency!=='USD'||!str(v.folio)||!str(v.store)||!str(v.till)||!str(v.cashier)||!str(v.source)||!str(v.reference)||!Array.isArray(v.items))fail();ids.add(v.id);v.items.forEach(p=>product(p,true));const pay=C.payment(v.items,v.method,v.received,v.reference);if(pay.total!==v.total||pay.change!==v.change||pay.received!==v.received)fail();if(v.void&&(!str(v.void.reason)||!str(v.void.by)||!timestamp(v.void.at)))fail();if(v.posReference&&(!str(v.posReference.reference)||!str(v.posReference.by)||!timestamp(v.posReference.at)))fail();if(v.void&&v.posReference)fail();}
+    const orders=new Set();
+    for(const v of d.sales){
+      if(!id(v.id)||ids.has(v.id)||!id(v.sessionId)||!sessions.has(v.sessionId)||!timestamp(v.created)||v.currency!=='USD'||!str(v.folio)||!str(v.store)||!str(v.till)||!str(v.cashier)||!str(v.source)||!str(v.reference)||!Array.isArray(v.items))fail();
+      ids.add(v.id);v.items.forEach(p=>product(p,true));const channel=v.channel??'Tienda',delivery=C.isDelivery(channel);
+      if(delivery){
+        if(!v.delivery||!str(v.delivery.orderId,80)||!str(v.delivery.rider,80)||!str(v.delivery.notes,200)||!integer(v.delivery.packages))fail();
+        C.deliveryData(channel,v.delivery);const expected=C.quote(v.items,channel);
+        if(!v.pricing||Object.keys(expected).some(k=>v.pricing[k]!==expected[k]))fail();
+        const key=JSON.stringify([v.store,channel,v.delivery.orderId.trim().toUpperCase()]);if(!v.void){if(orders.has(key))fail();orders.add(key);}
+      }else if(v.delivery!=null||v.pricing&&Object.keys(C.quote(v.items)).some(k=>v.pricing[k]!==C.quote(v.items)[k]))fail();
+      const pay=C.payment(v.items,v.method,v.received,v.reference,channel);if(pay.total!==v.total||pay.change!==v.change||pay.received!==v.received)fail();
+      if(v.void&&(!str(v.void.reason)||!str(v.void.by)||!timestamp(v.void.at)))fail();if(v.posReference&&(!str(v.posReference.reference)||!str(v.posReference.by)||!timestamp(v.posReference.at)))fail();if(v.void&&v.posReference)fail();
+    }
     if(d.active&&(!sessions.has(d.active)||sessions.get(d.active).closed))fail();
-    d.draft.items.forEach(p=>product(p,true));C.total(d.draft.items);if(!['Efectivo','Tarjeta BAC'].includes(d.draft.method)||!str(d.draft.received)||!str(d.draft.reference))fail();
+    d.draft.items.forEach(p=>product(p,true));C.quote(d.draft.items,d.draft.channel??'Tienda');if(!['Efectivo','Tarjeta BAC','Plataforma delivery'].includes(d.draft.method)||!str(d.draft.received)||!str(d.draft.reference))fail();
+    if(d.draft.method==='Plataforma delivery'&&!C.isDelivery(d.draft.channel??'Tienda'))fail();
+    if(d.draft.delivery&&(!str(d.draft.delivery.orderId,80)||!str(d.draft.delivery.rider,80)||!str(d.draft.delivery.notes,200)||!str(String(d.draft.delivery.packages),3)))fail();
     return d;
   }
   return {validate};
