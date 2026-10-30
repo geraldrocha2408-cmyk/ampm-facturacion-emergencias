@@ -1381,6 +1381,12 @@
       3.15
     ],
     [
+      "8809713915234",
+      "Café OKF Caramel Macciato 390",
+      "Leche Saborizada",
+      3.15
+    ],
+    [
       "8809713911410",
       "Café OKF Latte 390 ml",
       "Leche Saborizada",
@@ -4859,6 +4865,12 @@
       "FSI Vasito Tres Leches Melocot",
       "Postre",
       0
+    ],
+    [
+      "6941821724079",
+      "Fume Eternity Black Ice 20000",
+      "Vapes",
+      28
     ],
     [
       "6941821735549",
@@ -15691,8 +15703,8 @@
       0.8
     ]
   ],
-  "total": 2614,
+  "total": 2616,
   "name": "Precios Productos",
   "reportId": "6A605160AF446BF48DD5CAB6278A1037",
-  "downloadedAt": "2026-10-29T15:19:48.888Z"
+  "downloadedAt": "2026-10-30T19:54:02.238Z"
 }
