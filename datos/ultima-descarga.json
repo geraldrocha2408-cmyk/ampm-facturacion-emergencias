@@ -1,12 +1,12 @@
 {
-  "downloadedAt": "2026-10-30T19:54:02.238Z",
-  "verifiedAt": "2026-10-30T19:54:02.876Z",
+  "downloadedAt": "2026-11-02T23:04:01.672Z",
+  "verifiedAt": "2026-11-02T23:04:02.219Z",
   "products": 2616,
   "withoutPrice": 22,
   "priceColumn": "PriceC",
   "currency": "USD",
   "reportId": "6A605160AF446BF48DD5CAB6278A1037",
-  "sha256": "f7f8399b4dc1743d30398f005d64f231fc3c7af1fd3da034889ec80fc34e5f70",
-  "reportFile": "reportes/Precios-Productos-2026-10-30.csv",
+  "sha256": "eff20ef012568329ead0faa98cd1d285c8704103f17d8f71c6b94014159950b1",
+  "reportFile": "reportes/Precios-Productos-2026-11-02.csv",
   "schedule": "Lunes y viernes, 09:00, America/Managua"
 }

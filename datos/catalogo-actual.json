@@ -2218,7 +2218,7 @@
       "7501056901158",
       "Clorets Value Pack 30 S 42 grs",
       "Gomas de Mascar",
-      1.9
+      1.95
     ],
     [
       "7804320568300",
@@ -9463,20 +9463,20 @@
       59.98
     ],
     [
-      "7441008175216",
-      "PH Scott 2en1 2P Suavitela",
-      "Papel Higiénico",
-      1.7
-    ],
-    [
       "7441008174899",
-      "PH Scott 2en1 Jumbo 2P",
+      "PH Scott 2en1 Jumbo 4P",
       "Papel Higiénico",
       2.95
     ],
     [
-      "17441008168321",
-      "PH Scott Rindemax 2P",
+      "7441008175216",
+      "PH Scott 2en1 Regular 4P",
+      "Papel Higiénico",
+      1.7
+    ],
+    [
+      "7441008168324",
+      "PH Scott Rindemax 4P",
       "Papel Higiénico",
       3.3
     ],
@@ -12451,7 +12451,7 @@
       1.7
     ],
     [
-      "7441008168324",
+      "7441008168324x",
       "Scott Rindemax 4 Unid",
       "Papel Higiénico",
       3.65
@@ -12559,7 +12559,7 @@
       1.4
     ],
     [
-      "17441008172465",
+      "7441008172468",
       "Servilleta Scott Blanca Dia a",
       "Servilletas",
       1.95
@@ -15706,5 +15706,5 @@
   "total": 2616,
   "name": "Precios Productos",
   "reportId": "6A605160AF446BF48DD5CAB6278A1037",
-  "downloadedAt": "2026-10-30T19:54:02.238Z"
+  "downloadedAt": "2026-11-02T23:04:01.672Z"
 }
