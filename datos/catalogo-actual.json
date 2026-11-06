@@ -511,6 +511,18 @@
       2.85
     ],
     [
+      "613008726096",
+      "Arizona Lemonade 22 oz Lata",
+      "Jugos",
+      2.8
+    ],
+    [
+      "613008767372",
+      "Arizona Tropical Chillzicle",
+      "Jugos",
+      3.4
+    ],
+    [
       "613008720209",
       "Arizona Watermelon 22 Oz.",
       "Jugos",
@@ -4972,7 +4984,7 @@
       "7441163412041",
       "Galleta Club Extra Queso Amax8",
       "Galletas",
-      2.75
+      3.34
     ],
     [
       "7441163405180",
@@ -8170,7 +8182,7 @@
       "7501088211850",
       "Nucita Patitas x8",
       "Chocolates",
-      4.6
+      5.45
     ],
     [
       "7501088210723",
@@ -13870,7 +13882,7 @@
       "7441163405371",
       "Tosh Chocolate y Avellanas x8",
       "Galletas",
-      4.5
+      4.99
     ],
     [
       "7702007016475",
@@ -14104,7 +14116,7 @@
       "7702007072440",
       "Tutto Arandanos 80 grs",
       "Chocolates",
-      2.85
+      3.15
     ],
     [
       "7702007079784",
@@ -15703,8 +15715,8 @@
       0.8
     ]
   ],
-  "total": 2616,
+  "total": 2618,
   "name": "Precios Productos",
   "reportId": "6A605160AF446BF48DD5CAB6278A1037",
-  "downloadedAt": "2026-11-02T23:04:01.672Z"
+  "downloadedAt": "2026-11-06T20:47:53.115Z"
 }
