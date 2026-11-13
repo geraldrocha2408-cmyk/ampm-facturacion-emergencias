@@ -1216,7 +1216,7 @@
       "50196395",
       "Buchanans 12 Anos 375ml",
       "Whisky",
-      35.9
+      36.25
     ],
     [
       "50196388",
@@ -1395,6 +1395,12 @@
     [
       "8809713915234",
       "Café OKF Caramel Macciato 390",
+      "Leche Saborizada",
+      3.15
+    ],
+    [
+      "8809713915258",
+      "Café OKF Cold Brew 390 ml",
       "Leche Saborizada",
       3.15
     ],
@@ -1609,6 +1615,12 @@
       11.85
     ],
     [
+      "7410063020021",
+      "Cargador de Pared Tipo-C 20W",
+      "Tecnologia",
+      15.61
+    ],
+    [
       "7410063002010",
       "Cargador Para Auto 2 Salidas U",
       "Tecnologia",
@@ -1720,7 +1732,7 @@
       "760573070656",
       "Cashitas Pistacho 70 grs",
       "Semillas",
-      3.34
+      3.45
     ],
     [
       "7804320985633",
@@ -2116,13 +2128,13 @@
       "80051831",
       "CHOCOLATE HUEVO KINDER SORPRES",
       "Chocolates",
-      2.85
+      2.99
     ],
     [
       "80052760",
       "CHOCOLATE KINDER BUENO 43G",
       "Chocolates",
-      2.55
+      2.75
     ],
     [
       "7411801101668",
@@ -2164,7 +2176,7 @@
       "7802215102721",
       "CHOCOLATE VIZZIO 72GR",
       "Chocolates",
-      2.25
+      2.5
     ],
     [
       "7702007243628",
@@ -3130,7 +3142,7 @@
       "80050100",
       "CREMA DE AVELLANA NUTELLA y GO",
       "Chocolates",
-      3.4
+      3.55
     ],
     [
       "7509546066776",
@@ -4903,8 +4915,20 @@
       21
     ],
     [
+      "6941821735686",
+      "Fume Pro 30K Polar Ice",
+      "Vapes",
+      21
+    ],
+    [
       "6941821735587",
       "Fume Pro 30K Triple Berry Ice",
+      "Vapes",
+      21
+    ],
+    [
+      "6941821741649",
+      "Fume Pro 30K Winter Mint",
       "Vapes",
       21
     ],
@@ -5614,7 +5638,7 @@
       "764009009791",
       "HEINEKEN 6pack Lata",
       "Cervezas Importadas",
-      12.55
+      12.95
     ],
     [
       "764009016089",
@@ -6166,7 +6190,7 @@
       "7406189008579",
       "Jugo de la Granja 500ml",
       "Jugos",
-      1.15
+      1.25
     ],
     [
       "7401000707334",
@@ -13138,7 +13162,7 @@
       "7441029522303",
       "Sponch Edicion Navidena 90g",
       "Galletas",
-      1.05
+      1.2
     ],
     [
       "74001200",
@@ -13533,6 +13557,12 @@
     [
       "740100591360",
       "Te Lipton Frambuesa 2.5 Litros",
+      "Te frio",
+      3.3
+    ],
+    [
+      "740100591362",
+      "Te Lipton Limon 2.5 Litros",
       "Te frio",
       3.3
     ],
@@ -14398,7 +14428,7 @@
       "3035132630105",
       "V. ByG Partager Rouge750ml",
       "Vinos y Champagne",
-      10.8
+      10.95
     ],
     [
       "3035130501100",
@@ -14422,7 +14452,7 @@
       "081537154596",
       "V8 Berry Splash 473 ml",
       "Jugos",
-      1.75
+      1.9
     ],
     [
       "081537154626",
@@ -14434,13 +14464,13 @@
       "081537154633",
       "V8 Peach Mango Splash 473ml",
       "Jugos",
-      1.75
+      1.9
     ],
     [
       "081537154589",
       "V8 Straw Kiwi Splash 473 ml",
       "Jugos",
-      1.75
+      1.9
     ],
     [
       "AMPMAS00127",
@@ -15721,8 +15751,8 @@
       0.8
     ]
   ],
-  "total": 2619,
+  "total": 2624,
   "name": "Precios Productos",
   "reportId": "6A605160AF446BF48DD5CAB6278A1037",
-  "downloadedAt": "2026-11-09T23:44:55.917Z"
+  "downloadedAt": "2026-11-13T21:21:24.931Z"
 }
